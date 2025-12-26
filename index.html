@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VigilixHub Manpower</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0f0f0f',
+                            red: '#D90429',
+                            darkRed: '#8D0801',
+                            gray: '#F3F4F6'
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-brand-black overflow-x-hidden antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Navbar Starts Here -->
+    <div class="bg-brand-black text-white text-xs py-2 hidden md:block relative z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center opacity-90">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2 hover:text-brand-red transition-colors cursor-pointer">
+                    <i class="fa-solid fa-location-arrow text-brand-red text-[10px]"></i> Chennai, India
+                </span>
+                <span class="flex items-center gap-2 hover:text-brand-red transition-colors cursor-pointer">
+                    <i class="fa-solid fa-phone text-brand-red text-[10px]"></i> +91 98765 43210
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-gray-400">Follow us:</span>
+                <div class="flex space-x-3">
+                    <a href="#" class="hover:text-brand-red transition-transform hover:-translate-y-0.5"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-red transition-transform hover:-translate-y-0.5"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-brand-red transition-transform hover:-translate-y-0.5"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="navbar"
+        class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+
+                <a href="#" class="flex items-center z-50">
+                    <span class="text-xl font-bold tracking-tight text-brand-black">
+                        <img class="w-20 h-20" src="/assets/images/vHub-logo.svg" alt="">
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-black relative group overflow-hidden">
+                        <span class="relative z-10">Home</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-black relative group">
+                        <span class="relative z-10">Services</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-black relative group">
+                        <span class="relative z-10">Find Job</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#"
+                        class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-black relative group">
+                        <span class="relative z-10">Find Employees</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a href="#"
+                        class="group relative px-6 py-2.5 bg-brand-black text-white rounded-full text-sm font-medium overflow-hidden hover:shadow-lg transition-all duration-300">
+                        <span class="relative z-10 group-hover:text-white transition-colors">Contact Us</span>
+                        <div
+                            class="absolute inset-0 bg-brand-red transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0">
+                        </div>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 text-brand-black hover:text-brand-red transition-colors">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-overlay"
+        class="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-500"></div>
+
+    <div id="mobile-sidebar"
+        class="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white z-50 transform translate-x-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) shadow-2xl flex flex-col border-l border-gray-100">
+
+        <div class="p-6 flex justify-between items-center border-b border-gray-50">
+            <h2 class="text-lg font-bold text-brand-black">Menu</h2>
+            <button id="close-menu-btn"
+                class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 hover:text-brand-red transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="mobile-links-container" class="flex-1 p-6 space-y-2 overflow-y-auto">
+            <a href="#"
+                class="mobile-link block p-3 rounded-lg hover:bg-gray-50 font-medium text-gray-600 hover:text-brand-red transition-all flex items-center gap-3">
+                <i class="fa-solid fa-house w-6 text-center text-gray-400"></i> Home
+            </a>
+            <a href="#"
+                class="mobile-link block p-3 rounded-lg hover:bg-gray-50 font-medium text-gray-600 hover:text-brand-red transition-all flex items-center gap-3">
+                <i class="fa-solid fa-layer-group w-6 text-center text-gray-400"></i> Services
+            </a>
+            <a href="#"
+                class="mobile-link block p-3 rounded-lg hover:bg-gray-50 font-medium text-gray-600 hover:text-brand-red transition-all flex items-center gap-3">
+                <i class="fa-solid fa-magnifying-glass w-6 text-center text-gray-400"></i> Find Job
+            </a>
+            <a href="#"
+                class="mobile-link block p-3 rounded-lg hover:bg-gray-50 font-medium text-gray-600 hover:text-brand-red transition-all flex items-center gap-3">
+                <i class="fa-solid fa-info-circle w-6 text-center text-gray-400"></i> Find Employees
+            </a>
+        </div>
+
+        <div class="p-6 bg-gray-50">
+            <a href="#"
+                class="block w-full py-3 bg-brand-black text-white text-center rounded-lg font-medium hover:bg-brand-red transition-colors">
+                Contact Support
+            </a>
+        </div>
+    </div>
+    <!-- Navbar Ends Here -->
+
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[calc(100vh-120px)] flex items-center pt-10 pb-20 overflow-hidden bg-white">
+
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 z-0">
+        </div>
+        <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gray-100 rounded-full blur-[80px] z-0"></div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            <div class="space-y-8 animate-fade-in-up">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-brand-red text-xs font-bold uppercase tracking-widest w-fit">
+                    <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                    Premier Manpower Solutions
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-brand-black">
+                    Workforce <br>
+                    <span class="relative inline-block">
+                        <span class="relative z-10">Excellence.</span>
+                        <svg class="absolute bottom-2 left-0 w-full h-4 text-brand-red/20 -z-0" viewBox="0 0 100 10"
+                            preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                        </svg>
+                    </span>
+                </h1>
+
+                <p class="text-lg text-gray-500 max-w-lg leading-relaxed">
+                    Connecting businesses with skilled professionals. We provide reliable, vetted manpower to scale your
+                    operations effortlessly.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#"
+                        class="px-8 py-3.5 bg-brand-red text-white rounded-lg font-semibold shadow-lg shadow-red-500/30 hover:bg-brand-darkRed hover:-translate-y-1 transition-all duration-300">
+                        Find Workers
+                    </a>
+                    <a href="#"
+                        class="px-8 py-3.5 bg-white text-brand-black border border-gray-200 rounded-lg font-semibold hover:border-brand-black hover:bg-gray-50 transition-all duration-300 flex items-center gap-2">
+                        View Services <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="pt-8 flex items-center gap-8 text-gray-400 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-brand-red"></i>
+                        <span class="text-sm font-medium text-gray-600">Verified Staff</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-brand-red"></i>
+                        <span class="text-sm font-medium text-gray-600">Fast Deployment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative hidden lg:block h-[500px]">
+                <div class="absolute inset-0 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-2xl">
+                    <div class="absolute inset-0 opacity-10"
+                        style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;">
+                    </div>
+
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div
+                            class="w-32 h-32 bg-brand-red/10 rounded-full flex items-center justify-center animate-pulse-slow">
+                            <i class="fa-solid fa-users text-4xl text-brand-red"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="absolute top-10 -right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-glass border border-white/50 animate-float-slow w-48">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Workers Active</p>
+                            <p class="text-lg font-bold text-brand-black">1,200+</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="absolute bottom-12 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-glass border border-white/50 animate-float-delayed w-48">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Client Rating</p>
+                            <p class="text-lg font-bold text-brand-black">4.9/5.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section Ends Here -->
+
+
+    <!-- Services Section -->
+    <section class="relative py-24 bg-gray-50 overflow-hidden" id="services">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent">
+        </div>
+        <div class="absolute top-40 left-0 w-96 h-96 bg-brand-red/5 rounded-full blur-[100px] -translate-x-1/2"></div>
+        <div class="absolute bottom-40 right-0 w-96 h-96 bg-gray-200/50 rounded-full blur-[100px] translate-x-1/2">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 text-brand-red text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-red"></span>
+                    What We Do
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-black mb-4 tracking-tight">
+                    Tailored Manpower <span class="text-brand-red">Solutions</span>
+                </h2>
+                <p class="text-gray-500">
+                    We specialize in providing trained and verified personnel across various sectors to ensure your
+                    business continuity.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div
+                    class="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-brand-black mb-3 group-hover:text-brand-red transition-colors">
+                        Security Services</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Professional security guards and surveillance personnel to protect your assets, premises, and
+                        people 24/7.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-semibold text-brand-black hover:text-brand-red transition-colors">
+                        Learn more <i
+                            class="fa-solid fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-brand-black mb-3 group-hover:text-brand-red transition-colors">
+                        Housekeeping</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Trained housekeeping staff for corporate offices, residential complexes, and industrial
+                        facilities.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-semibold text-brand-black hover:text-brand-red transition-colors">
+                        Learn more <i
+                            class="fa-solid fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-brand-black mb-3 group-hover:text-brand-red transition-colors">
+                        Industrial Labor</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Skilled and semi-skilled workforce for factories, warehouses, and manufacturing units.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-semibold text-brand-black hover:text-brand-red transition-colors">
+                        Learn more <i
+                            class="fa-solid fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-brand-black mb-3 group-hover:text-brand-red transition-colors">
+                        Event Staffing</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Presentable and articulate staff for corporate events, weddings, exhibitions, and promotions.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-semibold text-brand-black hover:text-brand-red transition-colors">
+                        Learn more <i
+                            class="fa-solid fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-brand-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-brand-black mb-3 group-hover:text-brand-red transition-colors">
+                        Technical Staff</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Electricians, plumbers, carpenters, and maintenance technicians for facility management.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-semibold text-brand-black hover:text-brand-red transition-colors">
+                        Learn more <i
+                            class="fa-solid fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div
+                    class="relative bg-brand-black rounded-2xl p-8 shadow-lg overflow-hidden flex flex-col justify-between group">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-brand-red rounded-bl-full opacity-20 group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Need Something Custom?</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                            We provide tailored staffing solutions based on your specific industry requirements. Let's
+                            discuss your needs.
+                        </p>
+                    </div>
+
+                    <a href="#"
+                        class="w-full py-3 bg-brand-red text-white text-center rounded-lg font-semibold hover:bg-white hover:text-brand-black transition-all duration-300">
+                        Contact Us Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Services Section Ends Here -->
+
+
+    <!-- Find Job Section -->
+    <section class="relative py-24 bg-white overflow-hidden" id="find-job">
+
+        <div
+            class="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-red/5 rounded-full blur-[80px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
+                <div class="max-w-xl">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-brand-red text-xs font-bold uppercase tracking-widest mb-4">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                        Career Opportunities
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-black mb-4 tracking-tight">
+                        Find Your Next <span class="text-brand-red">Role</span>
+                    </h2>
+                    <p class="text-gray-500">
+                        Browse our latest openings. We connect skilled professionals with top-tier companies across the
+                        region.
+                    </p>
+                </div>
+
+                <div class="w-full lg:w-auto flex-1 max-w-2xl">
+                    <form
+                        class="bg-white p-2 rounded-xl border border-gray-200 shadow-lg shadow-gray-200/50 flex flex-col md:flex-row gap-2">
+                        <div class="flex-1 relative group">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i
+                                    class="fa-solid fa-magnifying-glass text-gray-400 group-focus-within:text-brand-red transition-colors"></i>
+                            </div>
+                            <input type="text"
+                                class="block w-full pl-10 pr-3 py-3 border-none rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-red/20 text-sm transition-all outline-none"
+                                placeholder="Job title or keyword...">
+                        </div>
+                        <div class="flex-1 relative group">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i
+                                    class="fa-solid fa-location-dot text-gray-400 group-focus-within:text-brand-red transition-colors"></i>
+                            </div>
+                            <select
+                                class="block w-full pl-10 pr-3 py-3 border-none rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-brand-red/20 text-sm text-gray-600 transition-all outline-none appearance-none cursor-pointer">
+                                <option>All Locations</option>
+                                <option>Chennai</option>
+                                <option>Bangalore</option>
+                                <option>Coimbatore</option>
+                            </select>
+                        </div>
+                        <button type="button"
+                            class="px-6 py-3 bg-brand-black text-white rounded-lg font-medium hover:bg-brand-red transition-colors flex items-center justify-center gap-2">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+                <div
+                    class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-brand-red/30 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-brand-red">
+                            <i
+                                class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </span>
+                    </div>
+
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-user-shield text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-black group-hover:text-brand-red transition-colors">
+                                Security Supervisor</h3>
+                            <p class="text-sm text-gray-500">Tech Park, Chennai</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Full
+                            Time</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Urgent</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-green-50 text-xs font-medium text-green-700 border border-green-100">₹25k
+                            - ₹35k/mo</span>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                        <span class="text-xs text-gray-400">Posted 2 days ago</span>
+                        <a href="#"
+                            class="text-sm font-semibold text-brand-black group-hover:text-brand-red transition-colors">Apply
+                            Now</a>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-brand-red/30 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-brand-red">
+                            <i
+                                class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </span>
+                    </div>
+
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-black group-hover:text-brand-red transition-colors">
+                                Senior Electrician</h3>
+                            <p class="text-sm text-gray-500">Industrial Zone, Ambattur</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Shift
+                            Based</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Exp:
+                            3+ Yrs</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-green-50 text-xs font-medium text-green-700 border border-green-100">₹20k
+                            - ₹28k/mo</span>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                        <span class="text-xs text-gray-400">Posted 1 day ago</span>
+                        <a href="#"
+                            class="text-sm font-semibold text-brand-black group-hover:text-brand-red transition-colors">Apply
+                            Now</a>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-brand-red/30 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-brand-red">
+                            <i
+                                class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </span>
+                    </div>
+
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-boxes-packing text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-black group-hover:text-brand-red transition-colors">
+                                Warehouse Manager</h3>
+                            <p class="text-sm text-gray-500">Logistics Hub, Red Hills</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Full
+                            Time</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Management</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-green-50 text-xs font-medium text-green-700 border border-green-100">₹30k
+                            - ₹45k/mo</span>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                        <span class="text-xs text-gray-400">Posted 5 hours ago</span>
+                        <a href="#"
+                            class="text-sm font-semibold text-brand-black group-hover:text-brand-red transition-colors">Apply
+                            Now</a>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-brand-red/30 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-brand-red">
+                            <i
+                                class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </span>
+                    </div>
+
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-calendar-check text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-black group-hover:text-brand-red transition-colors">
+                                Event Coordinator</h3>
+                            <p class="text-sm text-gray-500">Vigilix Events, OMR</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Contract</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-gray-50 text-xs font-medium text-gray-600 border border-gray-100">Flexible</span>
+                        <span
+                            class="px-3 py-1 rounded-md bg-green-50 text-xs font-medium text-green-700 border border-green-100">₹1500/day</span>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t border-gray-50 pt-4 mt-auto">
+                        <span class="text-xs text-gray-400">Posted 3 days ago</span>
+                        <a href="#"
+                            class="text-sm font-semibold text-brand-black group-hover:text-brand-red transition-colors">Apply
+                            Now</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden bg-brand-black text-white p-8 md:p-12">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-brand-red rounded-full blur-[80px] opacity-30 translate-x-1/3 -translate-y-1/3">
+                </div>
+                <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+                </div>
+
+                <div
+                    class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-2">Can't find the right job?</h3>
+                        <p class="text-gray-400 max-w-xl">
+                            Upload your resume to our database. Our AI matching system will notify you when a role
+                            fitting your skills opens up.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                        <button
+                            class="px-8 py-3 bg-brand-red hover:bg-white hover:text-brand-black text-white rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Upload Resume
+                        </button>
+                        <a href="#"
+                            class="px-8 py-3 bg-transparent border border-gray-700 hover:border-white text-white rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
+                            View All Jobs
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Find Job Section Ends Here -->
+
+
+    <!-- Find Employees Section -->
+    <section class="relative py-24 bg-gray-50 overflow-hidden" id="find-employees">
+
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[120px] translate-y-1/2">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 text-brand-black text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-red"></span>
+                        For Employers
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl font-bold text-brand-black mb-6 tracking-tight leading-tight">
+                        Build Your <br>
+                        <span class="text-brand-red">Dream Workforce</span>
+                    </h2>
+
+                    <p class="text-gray-500 text-lg mb-10 leading-relaxed">
+                        Stop wasting time sifting through resumes. We provide pre-vetted, compliant, and skilled
+                        manpower ready to deploy within 24 hours.
+                    </p>
+
+                    <div class="space-y-8 relative">
+                        <div class="absolute left-6 top-4 bottom-4 w-0.5 bg-gray-200"></div>
+
+                        <div class="relative flex items-start gap-6 group">
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-brand-red flex items-center justify-center shadow-lg shadow-red-500/10 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-brand-red font-bold">01</span>
+                            </div>
+                            <div
+                                class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm w-full group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-300">
+                                <h4 class="font-bold text-brand-black text-lg mb-1">Share Requirements</h4>
+                                <p class="text-sm text-gray-500">Tell us the skills, volume, and duration you need.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-start gap-6 group">
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-full bg-brand-black border-2 border-brand-black flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-white font-bold">02</span>
+                            </div>
+                            <div
+                                class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm w-full group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-300">
+                                <h4 class="font-bold text-brand-black text-lg mb-1">Precision Matching</h4>
+                                <p class="text-sm text-gray-500">Our AI matches your needs with our verified database.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-start gap-6 group">
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-brand-red flex items-center justify-center shadow-lg shadow-red-500/10 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <span class="text-brand-red font-bold">03</span>
+                            </div>
+                            <div
+                                class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm w-full group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-300">
+                                <h4 class="font-bold text-brand-black text-lg mb-1">Rapid Deployment</h4>
+                                <p class="text-sm text-gray-500">Onboarding and compliance handled by us.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-dots-pattern opacity-20"></div>
+
+                    <div
+                        class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-red"></div>
+
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-brand-black">Request Talent</h3>
+                            <p class="text-sm text-gray-500 mt-1">Get a callback within 30 minutes.</p>
+                        </div>
+
+                        <form class="space-y-5">
+                            <div class="grid grid-cols-2 gap-5">
+                                <div class="space-y-1">
+                                    <label class="text-xs font-semibold text-gray-600 uppercase">Company Name</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none transition-all"
+                                        placeholder="Acme Corp">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs font-semibold text-gray-600 uppercase">Contact Person</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none transition-all"
+                                        placeholder="John Doe">
+                                </div>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-gray-600 uppercase">Looking For</label>
+                                <select
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none transition-all cursor-pointer">
+                                    <option>Select Staffing Need...</option>
+                                    <option>Security Guards</option>
+                                    <option>Housekeeping Staff</option>
+                                    <option>Industrial Workers</option>
+                                    <option>Event Staff</option>
+                                    <option>Technical Staff</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-gray-600 uppercase">Number of Staff</label>
+                                <div class="flex items-center gap-4">
+                                    <label
+                                        class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded-lg flex-1 hover:border-brand-red transition-colors has-[:checked]:bg-red-50 has-[:checked]:border-brand-red">
+                                        <input type="radio" name="staff_count" class="accent-brand-red">
+                                        <span class="text-sm font-medium text-gray-700">1-10</span>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded-lg flex-1 hover:border-brand-red transition-colors has-[:checked]:bg-red-50 has-[:checked]:border-brand-red">
+                                        <input type="radio" name="staff_count" class="accent-brand-red">
+                                        <span class="text-sm font-medium text-gray-700">10-50</span>
+                                    </label>
+                                    <label
+                                        class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded-lg flex-1 hover:border-brand-red transition-colors has-[:checked]:bg-red-50 has-[:checked]:border-brand-red">
+                                        <input type="radio" name="staff_count" class="accent-brand-red">
+                                        <span class="text-sm font-medium text-gray-700">50+</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold text-gray-600 uppercase">Phone Number</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="text-gray-400 text-sm font-bold">+91</span>
+                                    </div>
+                                    <input type="tel"
+                                        class="w-full pl-12 pr-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:bg-white focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none transition-all"
+                                        placeholder="98765 43210">
+                                </div>
+                            </div>
+
+                            <button type="button"
+                                class="w-full py-4 bg-brand-black text-white font-bold rounded-lg hover:bg-brand-red transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-red-500/40 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                Get Staffing Solution <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+
+                        <div class="absolute top-4 right-4 animate-pulse-slow">
+                            <div
+                                class="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-full border border-green-100">
+                                <span class="relative flex h-2 w-2">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <span class="text-[10px] font-bold text-green-700 uppercase tracking-wide">Agents
+                                    Active</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Find Employees Section Ends Here -->
+
+
+    <!-- Footer Section -->
+    <footer class="bg-brand-black text-white relative overflow-hidden pt-16 pb-8">
+
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-black via-brand-red to-brand-black">
+        </div>
+
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2 pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+                <div class="space-y-6">
+                    <a href="#" class="flex items-center gap-2">
+                        <img class="w-16 h-16" src="/assets/images/vHub-logo.svg" alt="VigilixHub">
+                        <!-- <span class="text-xl font-bold tracking-tight">VigilixHub</span> -->
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Redefining manpower solutions with speed, precision, and trust. Connecting top-tier talent with
+                        industry leaders since 2025.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 hover:bg-brand-red flex items-center justify-center transition-all duration-300 group">
+                            <i class="fa-brands fa-linkedin-in text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 hover:bg-brand-red flex items-center justify-center transition-all duration-300 group">
+                            <i class="fa-brands fa-twitter text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 hover:bg-brand-red flex items-center justify-center transition-all duration-300 group">
+                            <i class="fa-brands fa-instagram text-gray-400 group-hover:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span> Useful Links
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-brand-red hover:pl-2 transition-all duration-300">About Us</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-red hover:pl-2 transition-all duration-300">Our
+                                Services</a></li>
+                        <li><a href="#" class="hover:text-brand-red hover:pl-2 transition-all duration-300">Find
+                                Jobs</a></li>
+                        <li><a href="#" class="hover:text-brand-red hover:pl-2 transition-all duration-300">Contact
+                                Support</a></li>
+                        <li><a href="#" class="hover:text-brand-red hover:pl-2 transition-all duration-300">Privacy
+                                Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span> Contact
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-red"></i>
+                            <span>123, Anna Salai, Guindy,<br>Chennai - 600032, India</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-red"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-red"></i>
+                            <span>hello@vigilixhub.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span> Newsletter
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe to get latest job alerts and industry news.</p>
+                    <form class="relative">
+                        <input type="email" placeholder="Enter your email"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-4 pr-12 text-sm text-white focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none transition-all">
+                        <button type="button"
+                            class="absolute right-1 top-1 bottom-1 w-10 bg-brand-red rounded-md flex items-center justify-center text-white hover:bg-brand-darkRed transition-colors">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500">
+                    &copy; 2025 VigilixHub Manpower. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6 text-xs text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies Settings</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Footer Section Ends Here -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>

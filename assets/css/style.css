@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Garet-Book';
+}
+
+@font-face {
+    font-family: 'Garet-Book';
+    src: url('/assets/fonts/Garet-Book.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Garet-Heavy';
+    src: url('/assets/fonts/Garet-Heavy.ttf') format('truetype');
+    font-display: swap;
+}
+
+/* --- Animations --- */
+
+/* 1. Fade In Up (Hero Content) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Floating Animation (Glass Cards) */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float 7s ease-in-out infinite 1s;
+    /* Delayed start */
+}
+
+/* 3. Pulse (Center Icon) */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* --- Mobile Menu Transitions --- */
+.mobile-link {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.4s ease-out;
+}
+
+.mobile-menu-open .mobile-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger delays */
+.mobile-link:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.mobile-link:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.mobile-link:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.mobile-link:nth-child(4) {
+    transition-delay: 0.25s;
+}
+
+/* --- Custom Scrollbar --- */
+/* ::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D90429;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8D0801;
+} */
